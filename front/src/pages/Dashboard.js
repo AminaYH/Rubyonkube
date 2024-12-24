@@ -8,6 +8,8 @@ const Dashboard = () => {
         <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
             <Sidebar /> {/* Floating Sidebar */}
 
+
+
             <Box sx={{ flex: 1, padding: '20px', marginLeft: '250px' }}> {/* Add left margin to account for sidebar */}
                 <Container maxWidth="xl">
                     <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '20px' }}>
@@ -25,8 +27,9 @@ const Dashboard = () => {
                             </Card>
                         </Grid>
 
+
                         <Grid item xs={12} md={4}>
-                            <Card sx={{ backgroundColor: '#4caf50', color: '#fff' }}>
+                            <Card sx={{ backgroundColor: '#4c77af', color: '#fff' }}>
                                 <CardContent>
                                     <Typography variant="h5">Users</Typography>
                                     <Typography variant="h6">1,250</Typography>
@@ -35,7 +38,7 @@ const Dashboard = () => {
                         </Grid>
 
                         <Grid item xs={12} md={4}>
-                            <Card sx={{ backgroundColor: '#f44336', color: '#fff' }}>
+                            <Card sx={{ backgroundColor: '#3678f4', color: '#fff' }}>
                                 <CardContent>
                                     <Typography variant="h5">Revenue</Typography>
                                     <Typography variant="h6">$2,000</Typography>
