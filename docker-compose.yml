@@ -24,6 +24,7 @@ services:
       - db
 
   # React App
+
   react:
     build:
       context: ./front # Path to your React app directory
