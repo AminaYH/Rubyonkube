@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: myapp_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+  web:
+    build:
+      context: ./myapp
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/myapp_development
+      RAILS_ENV: development
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0"
+    volumes:
+      - ./myapp:/rails
+    ports:
+      - "3002:3000"
+    depends_on:
+      - db
+
+  # React App
+  react:
+    build:
+      context: ./front # Path to your React app directory
+    command: "npm start"  # Command to start the React app (you can adjust if needed)
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Useful for file watching in Docker
+    volumes:
+      - ./front:/frontend  # Mount the React app code inside the container
+    ports:
+      - "3001:3000"  # Expose React app on port 3001 (or any desired port)
+    networks:
+      - app-network
+    depends_on:
+      - web  # Ensures Rails app is up before React app
+
+volumes:
+  postgres_data:  # Volume for PostgreSQL data to persist
+
+networks:
+  app-network:
+    driver: bridge

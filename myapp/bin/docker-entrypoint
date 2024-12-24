@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+# Run any initialization commands, like migrations
+if [ "$RAILS_ENV" = "production" ]; then
+  echo "Running database migrations..."
+  bundle exec rails db:migrate
+fi
+
+exec "$@"

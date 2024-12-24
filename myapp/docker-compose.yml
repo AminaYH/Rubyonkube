@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: myapp_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+  web:
+    build:
+      context: .
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/myapp_development
+      RAILS_ENV: development
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0"
+    volumes:
+      - .:/rails
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
