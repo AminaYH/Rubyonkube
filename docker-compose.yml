@@ -27,13 +27,12 @@ services:
   react:
     build:
       context: ./front # Path to your React app directory
-    command: "npm start"  # Command to start the React app (you can adjust if needed)
     environment:
       - CHOKIDAR_USEPOLLING=true  # Useful for file watching in Docker
     volumes:
-      - ./front:/frontend  # Mount the React app code inside the container
+      - ./front:/app  # Mount the React app code inside the container
     ports:
-      - "3001:3000"  # Expose React app on port 3001 (or any desired port)
+      - "8080:80"  # Expose React app on port 8080 (or any desired port)
     networks:
       - app-network
     depends_on:
