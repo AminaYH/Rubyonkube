@@ -38,6 +38,8 @@ RUN chmod +x /rails/bin/docker-entrypoint
 
 RUN bundle exec bootsnap precompile app/ lib/
 
+
+
 FROM base
 
 COPY --from=build /usr/local/bundle /usr/local/bundle
@@ -51,7 +53,6 @@ RUN useradd rails --create-home --shell /bin/bash && \
 
 USER rails:rails
 
-# Ensure the Rails binary is in the PATH
 ENV PATH="/usr/local/bundle/bin:/usr/local/bundle/gems/bin:/rails/bin:${PATH}"
 
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
