@@ -12,3 +12,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 end
+
+# config/routes.rb
+Rails.application.routes.draw do
+  get '/random_message', to: 'messages#random_message'
+end
+
+

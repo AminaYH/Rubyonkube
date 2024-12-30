@@ -26,7 +26,7 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libvips pkg-config
 
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler -v 2.5.1 && \
+RUN gem install bundler -v 2.5.23 && \
     bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile

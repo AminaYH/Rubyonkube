@@ -1,0 +1,29 @@
+.cat-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-block;
+    width: 100px; /* Adjust size */
+    height: 100px; /* Adjust size */
+    border-radius: 50%; /* Round the edges */
+    position: relative;
+    overflow: hidden; /* Hide any overflow content */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.cat-button img {
+    width: 100%; /* Make the image fill the button */
+    height: 100%; /* Make the image fill the button */
+    object-fit: cover; /* Ensure the image covers the button */
+    border-radius: 50%; /* Round the image to fit the circular button */
+}
+
+.cat-button:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* Optional: You can add a focus outline for accessibility */
+.cat-button:focus {
+    outline: none;
+}
