@@ -65,7 +65,7 @@ pipeline {
                                                       passwordVariable: 'DOCKER_PASS')]) {
                         sh '''
                             echo "${DOCKER_USER}"
-                            docker login --username amina.yahia@eniso.u-sousse.tn --password Blacky2001?
+                            docker login --username ********* --password ********
                             docker tag backend-image amina88/backend-image
                             docker push amina88/backend-image
                             docker logout
