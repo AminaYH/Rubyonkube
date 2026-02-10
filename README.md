@@ -60,7 +60,7 @@ pipeline {
             steps {
                 script {
                     // Login to DockerHub and push the backend image
-                    withCredentials([usernamePassword(credentialsId: '3ce0f240-a0f5-47a7-af79-a7e41ad633fb', 
+                    withCredentials([usernamePassword(credentialsId: '3c*************************', 
                                                       usernameVariable: 'DOCKER_USER', 
                                                       passwordVariable: 'DOCKER_PASS')]) {
                         sh '''
